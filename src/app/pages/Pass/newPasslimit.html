@@ -1,0 +1,37 @@
+<div id = "passID">
+    <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">Print Pass</h3>
+    </div>
+    <div class="modal-body" style = "overflow-x: auto; position: relative; overflow-y: auto;" id="modal-body">
+        
+        <div class="container">
+            <div class="row">
+                <h5>Date : {{customDate}}</h5>
+            </div>
+    
+            <div class="row">
+                <h5>selectedState : {{selectedState}}</h5>
+            </div>
+    
+           
+            <div class="row">
+                <h5>DaselectedCityte : {{selectedCity}}</h5>
+            </div>
+    
+            <div class="row">
+                <h5>name : {{name}}</h5>
+            </div>
+    
+            <div class="row">
+                <h5>adharNumbar : {{adharNumbar}}</h5>
+          </div>
+    
+          <div class="row">
+            <h5>VehicleNumber : {{VehicleNumber}}</h5>
+          </div>
+    
+          <button  class="btn btn-primary" type="button" ng-click="printPass()">Print</button>
+        </div>  
+    </div>
+</div>
+

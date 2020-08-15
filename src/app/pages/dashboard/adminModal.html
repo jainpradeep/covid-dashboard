@@ -1,0 +1,69 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">Set Daily Pass limit</h3>
+</div>
+<div class="modal-body" style = "overflow-x: auto; position: relative; overflow-y: auto;" id="modal-body">
+    
+    <div class="container">
+        <div class = "row">
+            <button ng-if = "admin" ng-click = "openNewPass()" style = "margin-bottom: 10px;" class="btn btn-success btn-icon">+</button>
+        </div>
+
+
+        <div class="row">
+     
+            <div class="col-md-2">
+              <p class="input-group">
+                <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="$parent.customDate" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                <span class="input-group-btn">
+                  <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+              </p>
+            </div>
+        </div>
+       
+        <div class="row">
+        <div class="col-sm">
+            <table style="margin: 0px; width:100%" class="table-bordered table-hover table-condensed" >
+                <tr>
+                  <td> 
+                  <table style="margin : 0px" class="table table-bordered table-hover table-condensed">
+                    <thead>
+                        <tr rowspan="3">
+                            <th>City</th>
+                            <th>State</th>
+                            <th>Limit</th>
+                        </tr>
+                    </thead>
+                <tbody>
+                  <tr ng-repeat="city in cities track by $index" class="editable-row">
+                      <td style = "width:100px" class="select-td">    
+                          <span editable-select="city.origin" e-name="origin" e-form="rowform" e-selectpicker e-ng-options="origin for origin in $parent.origin">
+                            {{ city.cityName || '-' }}
+                          </span>
+                        </td>
+                    <td style = "width:100px" class="select-td">    
+                      <span editable-select="city.product" e-name="product" e-form="rowform" e-selectpicker e-ng-options="product for product in $parent.products">
+                        {{ city.stateName || '-' }}
+                      </span>
+                    </td>
+                    <td>
+                      <span editable-number="city.seq_no" e-step="any" e-name="seq_no"  e-form="rowform" e-required>
+                          {{ city.dailyLimit || '-' }}
+                      </span>
+                    </td>
+                  </tr>
+                  </tbody>        
+              </table>
+            </td>
+          </tr>
+          </table>
+        </div>
+        </div>
+    </div>
+    
+
+</div>
+<div class="modal-footer">
+    <!-- <button class="btn btn-primary" type="button" ng-click="pc.ok()">OK</button> -->
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>

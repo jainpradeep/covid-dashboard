@@ -1,1 +1,38 @@
-<div id="lineChart" class="admin-chart" ng-controller="DashboardCtrl"></div>
+
+
+<section ng-controller="DashboardCtrl" class="DashboardCtrl">
+	<div ng-if = "admin" class = "row" ng-click = "open()">
+		<button style = "float: right;margin-bottom: 10px;" class="btn btn-success btn-icon"><i class="fa fa-user"></i></button>
+	</div>
+	<div class = "row">
+		<div class="row pie-charts">
+		  <div class="pie-chart-item-container" ng-repeat="data in tileData">
+		    <div ba-panel>
+		      <div class="pie-chart-item">
+		        <div class="description">
+		          <div>{{ ::data.description }}</div>
+		          <div class="description-stats">{{ ::data.stats }}</div>
+		        </div>
+		        <i class="chart-icon i-{{ ::data.icon }}"></i>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</div>
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <div ba-panel ba-panel-title="Country Report" ba-panel-class="with-scroll ">
+		    <ul>
+		        <li type="square" style="color:#FE6600">Confirmed </li>
+		        <li type="square" style="color:#B0DE09">Recovered </li>
+		        <li type="square" style="color:#FCDD41">Death </li>
+		    </ul>        
+		<div id="lineChart" class="admin-chart"  ng-controller="DashboardCtrl" >
+			</div>
+      </div> 
+    </div>
+  </div>
+
+  </section>

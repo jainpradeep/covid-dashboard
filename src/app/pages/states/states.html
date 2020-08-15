@@ -1,0 +1,48 @@
+<section ng-controller="StatesCtrl">
+
+  <div class="row">
+    <div class="col-md-12">
+      <div ba-panel ba-panel-title="Statewise Report" ba-panel-class="with-scroll ">
+        <ul>
+            <li type="square" style="color:#209E91">Total</li>
+            <li type="square" style="color:#90B900">Recovered Count</li>
+            <li type="square" style="color:#E85656">Death Count</li>
+        </ul>    
+        <h5>Stacked bar chart</h5>
+        <div id="stacked-bar-1" class="ct-chart stacked-bar"></div>
+        <div id="stacked-bar-2" class="ct-chart stacked-bar"></div>
+        <div id="stacked-bar-3" class="ct-chart stacked-bar"></div>
+      </div>
+    </div>
+  </div>
+
+    <div class="row">
+    <div class="col-md-12">
+      <div ba-panel ba-panel-title="Table View" ba-panel-class="with-scroll ">
+    <table class="table table-condensed">
+      <thead>
+      <tr>
+        <th class="table-id">#</th>
+        <th>State</th>
+        <th>Total</th>
+        <th>Recovered</th>
+        <th>Death</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="item in statesDataCounts[0] track by $index" >
+        <td>{{$index}}</td>
+        <td>{{statesLabelUnchuncked[$index]}}</td>
+        <td>{{item}}</td>
+        <td>{{statesDataCounts[1][$index]}}</td>
+        <td>{{statesDataCounts[2][$index]}}</td>
+      </tr>
+      </tbody>
+    </table>
+     </div> 
+    </div>
+  </div>
+</section>
+
+
+<!-- <div ui-view autoscroll="true" autoscroll-body-top></div> -->

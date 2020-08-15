@@ -7,12 +7,24 @@
 
   angular.module('BlurAdmin.theme.components')
       .directive('pageTop', pageTop);
+      pageTop.$inject = ['$state', '$stateParams', '$compile', 'authservice'];
 
   /** @ngInject */
-  function pageTop() {
+  function pageTop($state, $stateParams, $compile, authservice) {
     return {
       restrict: 'E',
-      templateUrl: 'app/theme/components/pageTop/pageTop.html'
+      scope:{
+        send:"&"
+      },
+      templateUrl: 'app/theme/components/pageTop/pageTop.html',
+      link: function($scope, element, attrs) {
+        $scope.logout = function(){
+          localStorage.clear();
+          localStorage.setItem("loggedOut", true)
+          //authservice.logout();
+          $state.go('authSignIn')
+        }
+      }
     };
   }
 

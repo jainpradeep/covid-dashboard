@@ -1,0 +1,66 @@
+
+<section ng-controller="PassCtrl">
+
+    <div class="row">
+        <div class="col-md-12">
+
+          <div ng-if = "!printPassHide" class="alert bg-success"><strong>Pass approved</strong> You may print the pass now</div>
+
+
+          <div ba-panel ba-panel-title="Apply for Pass" ba-panel-class="with-scroll ">
+                  <div class="row">
+                      <h5>Select Date</h5>
+                      <div class="col-md-2">
+                        <p class="input-group">
+                          <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="$parent.customDate" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                          <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                          </span>
+                        </p>
+                      </div>
+                  </div>
+          
+                  <div class="row">
+                      <h5>Select State</h5>
+                      <select ng-model="$parent.selectedState" ng-options="x for x in state">
+                      </select>
+                  </div>
+          
+                 
+                  <div class="row">
+                      <h5>Select City</h5>
+                      <select ng-model="$parent.selectedCity" ng-options="x for x in citiesList">
+                      </select>
+                  </div>
+
+                  <div class="row">
+                    <h5>Passes Remaining : {{ $scope.filteredCityInfo[0].dailyLimit}}</h5>
+                </div>
+          
+                  <div class="row">
+                      <h5>Name</h5>
+                      <input type="text" ng-model="$parent.name" id="input01" placeholder="Text">
+                  </div>
+
+                  <div class="row">
+                    <h5>Adhar Numbar</h5>
+                    <input type="text" ng-model="$parent.adharNumbar" id="input01" placeholder="Text">
+                </div>
+
+                <div class="row">
+                    <h5>Vehicle Number</h5>
+                    <input type="text" ng-model="$parent.VehicleNumber  " id="input01" placeholder="Text">
+                </div>
+          
+              <div ng-if ="!countryDailyLimit" class="row">
+                  <h5 style = "color: #FF0000;">Sorry No more pass aviable for the day</h5>
+              </div>
+                  <button ng-if ="selectedCity && countryDailyLimit"  class="btn btn-primary" type="button" ng-click="applyForPass()">Apply</button>
+                  <button ng-if ="selectedCity && printPassConfirm"  class="btn btn-primary" type="button" ng-click="openPrintPass()">Print Pass</button>
+          </div> 
+        </div>
+    </div>
+  </section>
+  
+  <!-- <div ui-view autoscroll="true" autoscroll-body-top></div> -->
+

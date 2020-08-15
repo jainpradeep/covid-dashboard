@@ -7,9 +7,8 @@
   /** @ngInject */
   function stateChangeStart($rootScope, $state, localStorage) {
     $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams) {
-      var login = localStorage.getObject('dataUser');
-      if (toState.authenticate && _.isEmpty(login)) {
-        // User isn’t authenticated
+      var login = localStorage.getObject('id');
+      if (toState.authenticate == false || typeof login != "string" || localStorage.getObject('loggedOut') == true) {
         $state.transitionTo("authSignIn");
         event.preventDefault();
       }

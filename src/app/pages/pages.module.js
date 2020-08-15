@@ -11,8 +11,11 @@
       'BlurAdmin.pages.config',
       'BlurAdmin.pages.main',
       'BlurAdmin.pages.dashboard',
-      'BlurAdmin.pages.patient',
-      'BlurAdmin.pages.authSignIn'
+      'BlurAdmin.pages.states',
+      'BlurAdmin.pages.district',
+      'BlurAdmin.pages.pass',
+      'BlurAdmin.pages.profile',
+      'BlurAdmin.pages.authSignIn',
     ])
     .config(routeConfig);
 

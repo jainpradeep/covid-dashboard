@@ -1,0 +1,58 @@
+<section ng-controller="DistrictCtrl">
+
+  <div class="row">
+    <div class="col-md-12">
+      <div ba-panel ba-panel-title="Districtewise Report" ba-panel-class="with-scroll ">
+         <ul>
+            <li type="square" style="color:#209E91">Total</li>
+            <li type="square" style="color:#90B900">Recovered Count</li>
+            <li type="square" style="color:#E85656">Death Count</li>
+        </ul>    
+        
+        <h5>Select State</h5>
+            <select  ng-change="checgeState(selectedState)" ng-model="selectedState" ng-options="x for x in statelabeLunchUncked">
+        </select>
+        <div id="stacked-bar-1" class="ct-chart stacked-bar"></div>
+        <div ng-if = "stackedBarData.length >=2"id="stacked-bar-2" class="ct-chart stacked-bar"></div>
+        <div ng-if = "stackedBarData.length >=3"id="stacked-bar-3" class="ct-chart stacked-bar"></div>
+        <div ng-if = "stackedBarData.length >=4"id="stacked-bar-4" class="ct-chart stacked-bar"></div>
+        <div ng-if = "stackedBarData.length >=5"id="stacked-bar-5" class="ct-chart stacked-bar"></div>
+        <div ng-if = "stackedBarData.length >=6" id="stacked-bar-6" class="ct-chart stacked-bar"></div>
+      </div> 
+    </div>
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <div ba-panel ba-panel-title="Table View" ba-panel-class="with-scroll ">
+
+    <table class="table table-condensed">
+      <thead>
+      <tr>
+        <th class="table-id">#</th>
+        <th>District</th>
+        <th>Total</th>
+        <th>Recovered</th>
+        <th>Death</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="item in districtDataCount[0] track by $index" >
+        <td>{{$index}}</td>
+        <td>{{districtlabeLunchUncked[$index]}}</td>
+        <td>{{item}}</td>
+        <td>{{districtDataCount[1][$index]}}</td>
+        <td>{{districtDataCount[2][$index]}}</td>
+      </tr>
+      </tbody>
+    </table>
+
+
+      </div> 
+    </div>
+  </div>
+</section>
+
+<!-- <div ui-view autoscroll="true" autoscroll-body-top></div> -->
